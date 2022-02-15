@@ -1,0 +1,32 @@
+import java.util.*;
+class Main {
+  public static void main(String[] args) {
+    Scanner scan = new Scanner(System.in);
+    int numR = scan.nextInt();
+    
+    double[] nums1 = {6, 4, 9, 7, 3};
+    double[] nums2 = {5, 2, 4, 1};
+    double area = 0;
+    int count = 0;
+
+
+    for (int i = 0; i < numR; i+=1){
+      if(nums1[i] < nums1[i+1]){
+        area += nums1[i] * nums2[count];
+        area += ((nums1[i+1]-nums1[i])*nums2[count])/2;
+        count++;
+      }
+      else if(nums1[i] > nums1[i+1]){
+        area += nums1[i+1] * nums2[count];
+        area += ((nums1[i]-nums1[i+1])*nums2[count])/2;
+        count++;
+      }
+      else {
+        area+= nums1[i]*nums1[i];
+        count++;
+      }
+
+    }
+    System.out.println(area);
+  }
+}
